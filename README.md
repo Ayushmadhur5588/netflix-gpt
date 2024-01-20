@@ -8,6 +8,7 @@ Welcome to Netflix-GPT, your personalized movie experience powered by GPT techno
 
 - **Create React App**: Kickstarted with the power of React for a smooth and responsive user interface.
 - **TailwindCSS**: Stylishly designed with TailwindCSS, ensuring a visually appealing and modern look.
+- LoginForm/Sign
 
 ## Features
 
@@ -16,6 +17,21 @@ Welcome to Netflix-GPT, your personalized movie experience powered by GPT techno
 - **Login/Logout**
   - Sign in and sign out pages for secure access.
   - Smooth redirection to the browse page upon authentication.
+
+- **Create Sign up User account**
+  - User-friendly signup form to create a new user account, using a secure API.
+
+- **Implemented Sign in user API**
+  - Utilizes an API for secure user sign-in.
+
+- **Created Redux Store with user slice**
+  - Centralized state management using Redux with a dedicated user slice.
+
+- **Update user slice when user signup/signin**
+  - Automatically updates user information in the Redux store upon signup or signin.
+
+- **Implemented SignOut Feature**
+  - Securely sign out from the app.
 
 ### Browse Page
 
