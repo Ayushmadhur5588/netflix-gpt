@@ -8,7 +8,6 @@ Welcome to Netflix-GPT, your personalized movie experience powered by GPT techno
 
 - **Create React App**: Kickstarted with the power of React for a smooth and responsive user interface.
 - **TailwindCSS**: Stylishly designed with TailwindCSS, ensuring a visually appealing and modern look.
-- LoginForm/Sign
 
 ## Development Steps
 
@@ -49,8 +48,6 @@ Welcome to Netflix-GPT, your personalized movie experience powered by GPT techno
 ### 6. Styling with Tailwind CSS
 
 - Applied Tailwind CSS classes to style the main container for an aesthetically pleasing appearance.
-
-Feel free to explore Netflix-GPT and discover a world of entertainment tailored just for you!
 
 
 ## Features
