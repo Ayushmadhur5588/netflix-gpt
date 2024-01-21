@@ -10,46 +10,63 @@ Welcome to Netflix-GPT, your personalized movie experience powered by GPT techno
 - **TailwindCSS**: Stylishly designed with TailwindCSS, ensuring a visually appealing and modern look.
 - LoginForm/Sign
 
+## Development Steps
+
+### 1. Project Setup
+
+- Created the app using Create React App.
+- Configured TailwindCSS for modern styling.
+
+### 2. Core Functionality
+
+- Developed app header for navigation.
+- Implemented routing for smooth transitions.
+- Created login and signup forms with form validation.
+- Used useRef hook for efficient form handling.
+- Set up Firebase for user authentication.
+- Deployed the app to production.
+
+### 3. User Authentication
+
+- Established a secure signup process.
+- Implemented API for user signin.
+- Integrated Redux for centralized state management.
+- Enabled user signout functionality.
+- Updated user profiles securely.
+
+### 4. TMDB API Integration
+
+- Registered the app with TMDB and obtained an access token.
+- Fetched now playing movies data from TMDB API.
+- Created a custom hook for managing now playing movies.
+- Developed a movie slice in the Redux store for movie-related data.
+
+### 5. Trailer Video Integration
+
+- Fetched trailer video data to enhance the movie details page.
+- Embedded YouTube videos with autoplay and mute functionality.
+
+### 6. Styling with Tailwind CSS
+
+- Applied Tailwind CSS classes to style the main container for an aesthetically pleasing appearance.
+
+Feel free to explore Netflix-GPT and discover a world of entertainment tailored just for you!
+
+
 ## Features
 
 ### Authentication
-
-- **Login/Logout**
-  - Sign in and sign out pages for secure access.
-  - Smooth redirection to the browse page upon authentication.
-
-- **Create Sign up User account**
-  - User-friendly signup form to create a new user account, using a secure API.
-
-- **Implemented Sign in user API**
-  - Utilizes an API for secure user sign-in.
-
-- **Created Redux Store with user slice**
-  - Centralized state management using Redux with a dedicated user slice.
-
-- **Update user slice when user signup/signin**
-  - Automatically updates user information in the Redux store upon signup or signin.
-
-- **Implemented SignOut Feature**
-  - Securely sign out from the app.
+- Secure Login and Signup Forms
+- Redirect to Browse Page after Authentication
 
 ### Browse Page
-
-- **Header**
-  - Intuitive navigation and user-friendly interface.
-
-- **Main Movie Showcase**
-  - Dynamic background with a movie trailer playing.
-  - Title and description displayed for an engaging experience.
-  - Movie suggestions categorized for easy exploration.
-  - A curated list of movies to keep you entertained.
+- Dynamic Header with Main Movie Showcase
+- Background Trailer with Title and Description
+- Categorized Movie Suggestions
+- Curated Movie Lists
 
 ### Netflix-GPT Integration
-
-- **Search Bar**
-  - Empowered by GPT, the app features a smart search bar for quick and accurate movie searches.
-
-- **Movies Suggestions**
-  - Intelligent movie suggestions based on your preferences, making your movie selection process a breeze.
+- Smart Search Bar with GPT Technology
+- Intelligent Movie Suggestions
 
 Feel free to explore Netflix-GPT and discover a world of entertainment tailored just for you!

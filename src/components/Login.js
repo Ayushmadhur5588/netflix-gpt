@@ -3,7 +3,8 @@ import Header from "./Header";
 import { checkValidData } from "../utils/validate";
 import {
   createUserWithEmailAndPassword,
-  signInWithEmailAndPassword , updateProfile
+  signInWithEmailAndPassword,
+  updateProfile,
 } from "firebase/auth";
 import { auth } from "../utils/firebase";
 import { useNavigate } from "react-router-dom";
@@ -21,12 +22,14 @@ const Login = () => {
     setisSignInForm(!isSignInForm);
   };
   const handleClick = () => {
-    const message = checkValidData(email.current.value, password.current.value, fullname?.current?.value);
+    const message = checkValidData(
+      email.current.value,
+      password.current.value,
+      fullname?.current?.value
+    );
     seterrorMessage(message);
-    if (message) return; //credentials are faulty then return else go for signup/in
-
+    if (message) return;
     if (!isSignInForm) {
-      //sign up
       createUserWithEmailAndPassword(
         auth,
         email.current.value,
@@ -34,16 +37,18 @@ const Login = () => {
         fullname.current.value
       )
         .then((userCredential) => {
-          // Signed up
           const user = userCredential.user;
           updateProfile(auth.currentUser, {
-            displayName: fullname.current.value, photoURL: "https://example.com/jane-q-user/profile.jpg"
-          }).then(() => {
-            navigate("/browse");
-          }).catch((error) => {
-            seterrorMessage(error.message);
-          });
-         })
+            displayName: fullname.current.value,
+            photoURL: "https://example.com/jane-q-user/profile.jpg",
+          })
+            .then(() => {
+              navigate("/browse");
+            })
+            .catch((error) => {
+              seterrorMessage(error.message);
+            });
+        })
         .catch((error) => {
           const errorCode = error.code;
           const errorMessage = error.message;
@@ -52,16 +57,13 @@ const Login = () => {
           // ..
         });
     } else {
-      //sign in
       signInWithEmailAndPassword(
         auth,
         email.current.value,
         password.current.value
       )
         .then((userCredential) => {
-          // Signed in
           const user = userCredential.user;
-          navigate("/browse");
         })
         .catch((error) => {
           const errorCode = error.code;
