@@ -8,6 +8,7 @@ import {
 } from "firebase/auth";
 import { auth } from "../utils/firebase";
 import { useNavigate } from "react-router-dom";
+import { background_Img } from "../utils/constants";
 
 const Login = () => {
   const [isSignInForm, setisSignInForm] = useState(false);
@@ -53,8 +54,6 @@ const Login = () => {
           const errorCode = error.code;
           const errorMessage = error.message;
           seterrorMessage(errorCode + errorMessage);
-
-          // ..
         });
     } else {
       signInWithEmailAndPassword(
@@ -78,7 +77,7 @@ const Login = () => {
       <Header />
       <div className="absolute">
         <img
-          src="https://assets.nflxext.com/ffe/siteui/vlv3/df6621a3-890c-4ca0-b698-90bd5152f3d1/20a59be7-7062-4991-bca0-805e9a7f2716/IN-en-20240107-trifectadaily-perspective_alpha_website_small.jpg"
+          src={background_Img}
           alt="Background_Img"
         />
       </div>
@@ -115,7 +114,7 @@ const Login = () => {
         />
         <p className="text-red-500 font-normal text-lg">{errorMessage}</p>
         <button
-          className=" w-full bg-red-700 p-3 mt-8 text-xl text-center mt-2 rounded-md"
+          className=" w-full bg-gradient-to-b from-red-800 p-3 mt-8 text-xl text-center mt-2 rounded-md"
           onClick={handleClick}
         >
           {isSignInForm ? "Sign In" : "Sign Up"}
