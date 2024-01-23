@@ -4,10 +4,9 @@ import VideoBackground from "./VideoBackground";
 import VideoTitle from "./VideoTitle";
 
 const MainContainer = () => {
-  const movies = useSelector((store) => store.movies?.nowplayingmovies);
+  const movies = useSelector((store) => store.movies?.nowplayingMovies);
   if (!movies) return;
   const mainmovie = movies[1];
-  console.log(movies);
   const { original_title, overview, id } = mainmovie;
   return (
     <div>

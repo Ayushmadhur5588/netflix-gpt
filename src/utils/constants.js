@@ -12,3 +12,5 @@ export const API_OPTIONS = {
       "Bearer "+process.env.REACT_APP_TMDB_API_KEY,
   },
 };
+
+export const movie_image_url = "https://image.tmdb.org/t/p/w500"
