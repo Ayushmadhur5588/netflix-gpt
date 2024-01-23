@@ -49,6 +49,20 @@ Welcome to Netflix-GPT, your personalized movie experience powered by GPT techno
 
 - Applied Tailwind CSS classes to style the main container for an aesthetically pleasing appearance.
 
+### 7. Secondary Container in Browse Component
+- Created a secondary container within the Browse component to display categorized movie lists.
+
+### 8. Tailwind Styling
+- Utilized Tailwind CSS to enhance the visual appeal of the movie lists, ensuring an aesthetically pleasing design.
+
+### 9. TMDB API Integration
+- Implemented custom hooks to fetch movie data from The Movie Database (TMDB) API for various categories (e.g., top-rated, popular, upcoming, now playing).
+
+### 10. Redux Store Update
+- Extended the Redux store by adding new reducers (e.g., `addNowPlayingMovies`, `addPopularMovies`,`addUpcomingMovies`,`addTopRatedMovies`, etc) to handle different movie categories.
+
+### 11. Browse Page Implementation
+- Integrated the secondary container, styling, API calls, and Redux store updates to create a functional Browse page.
 
 ## Features
 
@@ -66,4 +80,7 @@ Welcome to Netflix-GPT, your personalized movie experience powered by GPT techno
 - Smart Search Bar with GPT Technology
 - Intelligent Movie Suggestions
 
-Feel free to explore Netflix-GPT and discover a world of entertainment tailored just for you!
+
+## Project Setup
+
+Before starting the project please add .env file and add TMDB and OPENAI KEY into it.
