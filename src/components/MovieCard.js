@@ -2,6 +2,7 @@ import React from 'react'
 import { movie_image_url } from '../utils/constants';
 
 const MovieCard = ({movie}) => {
+  if(!movie.poster_path)return;
   return (
     <div>
       <img 
@@ -9,7 +10,7 @@ const MovieCard = ({movie}) => {
       src={movie_image_url + movie.poster_path}
       alt="movie_img"
       />
-    </div>
+      </div>
   )
 }
 

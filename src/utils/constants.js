@@ -51,3 +51,5 @@ export const Supported_Languagues = [
     name: "Russian",
   },
 ];
+
+export const open_ai_api_key = process.env.REACT_APP_OPENAI_API_KEY;

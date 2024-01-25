@@ -19,7 +19,7 @@ const lang = {
     search: "يبحث",
     placeholder: "ماذا تريد أن تشاهد اليوم؟",
   },
-  portuguese: {
+  portguese: {
     search: "Procurar",
     placeholder: "O que você gostaria de assistir hoje",
   },
