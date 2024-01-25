@@ -41,7 +41,6 @@ const GptSearchBar = () => {
     const movieList = gptresults.choices?.[0]?.message?.content.split(",");
     const promiseArray = movieList.map((movie) => searchTMDBMovie(movie));
     const tmdbResults = await Promise.all(promiseArray);
-    console.log(tmdbResults);
    // dispatch(addGptMovies({recommendedMovies: movieList, MovieResults: tmdbResults}));
     dispatch(addGptMovies(tmdbResults));
     dispatch(addRecommendedMovies(movieList));
@@ -53,7 +52,6 @@ const GptSearchBar = () => {
         className="w-6/12 text-black text-lg grid grid-cols-12"
         onSubmit={(e) => e.preventDefault()}
       >
-        {console.log(lang[language]?.placeholder)}
         <input
           className="p-4 m-4 col-span-9 rounded-lg"
           type="text"
