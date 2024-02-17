@@ -52,8 +52,11 @@ const Login = () => {
         })
         .catch((error) => {
           const errorCode = error.code;
-          const errorMessage = error.message;
+          if(error.code === "auth/email-already-in-use"){
+            seterrorMessage("Email already exists");
+          }else{
           seterrorMessage(errorCode + errorMessage);
+          }
         });
     } else {
       signInWithEmailAndPassword(
@@ -71,7 +74,7 @@ const Login = () => {
         });
     }
   };
-
+  
   return (
     <div>
       <Header />
@@ -112,20 +115,32 @@ const Login = () => {
           type="password"
           placeholder="enter password"
         />
-        <p className="text-red-500 font-normal text-lg">{errorMessage}</p>
+        <p className="text-red-500 font-light text-base">{errorMessage}</p>
+        {console.log(errorMessage)}
         <button
-          className=" w-full bg-gradient-to-b from-red-800 p-3 mt-8 text-xl text-center mt-2 rounded-md"
+          className=" w-full bg-gradient-to-b from-red-800 p-3 hover:bg-black text-xl text-center mt-2 rounded-md"
           onClick={handleClick}
         >
           {isSignInForm ? "Sign In" : "Sign Up"}
         </button>
 
-        <div className="mt-6 text-base text-gray-400 font-extralight cursor-pointer">
-          <p onClick={toggleSigninform}>
+        <div className="mt-6 text-base text-gray-400 font-extralight">
+       {/*  <p className="cursor-pointer" onClick={toggleSigninform}>
             {isSignInForm
               ? "New to Netflix? Sign up"
               : "Already Registered, SignIn"}
-          </p>
+          </p>*/}  
+          <span onClick={toggleSigninform}>
+            {isSignInForm
+              ? "New to Netflix? "
+              : "Already Registered, "}
+          </span>
+          <span className="cursor-pointer hover:underline text-white font-light" onClick={toggleSigninform}>
+            {isSignInForm
+              ? "Sign up"
+              : "SignIn"}
+          </span>
+          
 
           <p className="mt-2 text-xs">
             This page is protected by Google reCAPTCHA to ensure you're not a
