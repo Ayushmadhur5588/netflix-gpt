@@ -5,6 +5,7 @@ import openai from "../utils/openai";
 import { API_OPTIONS } from "../utils/constants";
 import { useDispatch } from "react-redux";
 import { addGptMovies , addRecommendedMovies} from "../utils/gptSlice";
+import { toggleShimmer } from "../utils/gptSlice";
 
 const GptSearchBar = () => {
   const language = useSelector((store) => store.langsetting.lang);
@@ -24,10 +25,11 @@ const GptSearchBar = () => {
   };
 
   const handleGptSearch = async () => {
+    dispatch(toggleShimmer(true));
     const gptquery =
       "Act as a Movie Recommendation System & suggest some movies for query: " +
       searchText.current.value +
-      ". Only give me name of 5 Movies, should be comma seperated. For ex: Train to Busan, 3 idiots, Bahubali, Raaz, Conjuring";
+      ". Only give me name of 10 Movies, should be comma seperated. For ex: Train to Busan, 3 idiots, Bahubali, Raaz, Conjuring";
 
     const gptresults = await openai.chat.completions.create({
       messages: [{ role: "user", content: gptquery }],
@@ -42,7 +44,8 @@ const GptSearchBar = () => {
     const promiseArray = movieList.map((movie) => searchTMDBMovie(movie));
     const tmdbResults = await Promise.all(promiseArray);
    // dispatch(addGptMovies({recommendedMovies: movieList, MovieResults: tmdbResults}));
-    dispatch(addGptMovies(tmdbResults));
+   dispatch(toggleShimmer(false)); 
+   dispatch(addGptMovies(tmdbResults));
     dispatch(addRecommendedMovies(movieList));
   };
 

@@ -4,25 +4,27 @@ const gptSlice = createSlice({
   name: "gpt",
   initialState: {
     showGptSearch: false,
-    // recommendedMovies: null,
     MoviesResults: null,
     MoviesName: null,
+    shimmer: false,
   },
   reducers: {
     toggleShow: (state, action) => {
       state.showGptSearch = !state.showGptSearch;
     },
     addGptMovies: (state, action) => {
-      //const { recommendedMovies, MoviesResults } = action.payload;
       state.MoviesResults = action.payload;
-      // state.recommendedMovies = recommendedMovies;
     },
     addRecommendedMovies: (state, action) => {
       state.MoviesName = action.payload;
     },
+    toggleShimmer: (state, action) => {
+      state.shimmer = action.payload;
+    },
   },
 });
 
-export const { toggleShow, addGptMovies, addRecommendedMovies } = gptSlice.actions;
+export const { toggleShow, addGptMovies, addRecommendedMovies, toggleShimmer } =
+  gptSlice.actions;
 
 export default gptSlice.reducer;

@@ -1,10 +1,21 @@
 import { movie_image_url } from "../utils/constants";
 import { useState } from "react";
+import ChildContainer from "./ChildContainer";
+import Movie from "./Movie";
+import { addChildMovie } from "../utils/moviesSlice";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 const MovieCard = ({ movie }) => {
   const [isHovered, setIsHovered] = useState(false);
-  console.log(movie);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   if (!movie.poster_path) return;
+  const handleClick = () => {
+    //store this movie data in store
+    dispatch(addChildMovie(movie));
+    navigate("/browse1");
+  }
 
   return (
     <div className="">
@@ -16,22 +27,23 @@ const MovieCard = ({ movie }) => {
           className="ml-5 min-w-44 max-h-52 object-cover hover:scale-105 transition duration-500 cursor-pointer rounded-lg"
           src={movie_image_url + movie.poster_path}
           alt="movie_img"
+          onClick={handleClick}
         />
         {isHovered && (
           <div className="absolute w-52 h-fit bg-black text-white rounded-lg p-2">
             <div className="flex mt-4 ml-2">
             
-              <button class="bg-transparent border border-white rounded-full p-2 hover:bg-gray-200 hover:border-gray-400">
+              <button className="bg-transparent border border-white rounded-full p-2 hover:bg-gray-200 hover:border-gray-400">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  class="h-8 w-8 text-white"
+                  className="h-8 w-8 text-white"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
                 >
                   <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
                     d="M5 3l14 9-14 9V3z"
                   />
                 </svg>

@@ -1,10 +1,10 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import useMovieTrailer from "../hooks/useMovieTrailer";
+import useMovie from "../hooks/useMovie";
 
-const VideoBackground = ({ videoId }) => {
-  useMovieTrailer(videoId);
-  const trailerVideo = useSelector((store) => store.movies?.trailer);
+const MovieBackground = ({ videoId }) => {
+  useMovie(videoId);
+  const trailerVideo = useSelector((store) => store.movies?.movie);
 
   return (
     <div className="w-screen aspect-video">
@@ -22,4 +22,4 @@ const VideoBackground = ({ videoId }) => {
   );
 };
 
-export default VideoBackground;
+export default MovieBackground;

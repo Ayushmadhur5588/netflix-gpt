@@ -1,8 +1,7 @@
-import React from "react";
 import MovieCard from "./MovieCard";
 
 const MoviesList = ({ category, movieList }) => {
-  return ( movieList && (
+  return (movieList &&  (
     <div>
       <h2 className="text-4xl font-bold text-white py-6  hover:text-sky-500 cursor-default">
         {category}

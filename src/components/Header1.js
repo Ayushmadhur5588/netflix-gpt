@@ -13,7 +13,7 @@ import {
 import { toggleShow } from "../utils/gptSlice";
 import { changeLanguage } from "../utils/langSettingSlice";
 
-const Header = () => {
+const Header1 = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const user = useSelector((store) => store.user);
@@ -49,7 +49,7 @@ const Header = () => {
   };
 
   return (
-    <div className="absolute z-10 w-screen px-8 py-2 bg-gradient-to-b from-black flex justify-between">
+    <div className="fixed top-0 left-0 z-50 w-screen px-8 py-2 bg-gradient-to-b from-black flex justify-between bg-black">
       <img className="w-52" src={netflix_logo} alt="Netflix_Logo" />
       {user && (
         <div className="p-6 flex">
@@ -89,4 +89,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default Header1;
