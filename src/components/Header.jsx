@@ -66,7 +66,7 @@ const Header = () => {
             </select>
           )}
           <button
-            className="text-white font-normal text-lg bg-gradient-to-b from-red-600 to-black rounded-lg p-2 mr-4"
+            className="text-white font-normal text-lg hover:bg-gradient-to-b from-red-600 to-black rounded-lg p-2 mr-4"
             onClick={showSearchBox}
           >
             {showGptSearch ? "Home Page" : "GPT Search"}

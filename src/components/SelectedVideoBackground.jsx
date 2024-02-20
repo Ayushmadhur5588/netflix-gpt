@@ -1,18 +1,18 @@
-import React from "react";
 import { useSelector } from "react-redux";
-import useMovie from "../hooks/useMovie";
+import useSelectedMovie from "../hooks/useSelectedMovie";
 
-const MovieBackground = ({ videoId }) => {
-  useMovie(videoId);
-  const trailerVideo = useSelector((store) => store.movies?.movie);
-
+const SelectedVideoBackground = ({ videoId }) => {
+  useSelectedMovie(videoId);
+  const trailerVideo = useSelector(
+    (store) => store.movies?.selectedMovieTrailer
+  );
   return (
     <div className="w-screen aspect-video">
       <iframe
         className="w-screen aspect-video"
         src={
           "https://www.youtube.com/embed/" +
-          trailerVideo?.key  +
+          trailerVideo?.key +
           "?&autoplay=1&mute=0"
         }
         title="YouTube video player"
@@ -22,4 +22,4 @@ const MovieBackground = ({ videoId }) => {
   );
 };
 
-export default MovieBackground;
+export default SelectedVideoBackground;

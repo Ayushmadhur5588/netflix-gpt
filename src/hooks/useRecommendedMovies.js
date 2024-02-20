@@ -6,7 +6,6 @@ import { useSelector } from "react-redux";
 
 const useRecommendedMovies = (id) => {
   const dispatch = useDispatch();
-  const recommendedMoviesData = useSelector((store) => store.movies.recommendedMovie);
   const getRecommendedMovies = async () => {
     const data = await fetch(
       "https://api.themoviedb.org/3/movie/"+id+"/recommendations",
@@ -17,8 +16,8 @@ const useRecommendedMovies = (id) => {
   };
 
   useEffect(() => {
-    !recommendedMoviesData && getRecommendedMovies();
-  }, []);
+     getRecommendedMovies();
+  }, [id]);
 };
 
 export default useRecommendedMovies;

@@ -7,17 +7,14 @@ import { addUser, removeUser } from "../utils/userSlice";
 import { useDispatch, useSelector } from "react-redux";
 import {
   netflix_logo,
-  Supported_Languagues,
   user_icon,
 } from "../utils/constants";
-import { toggleShow } from "../utils/gptSlice";
-import { changeLanguage } from "../utils/langSettingSlice";
 
-const Header1 = () => {
+
+const MovieDetailHeader = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const user = useSelector((store) => store.user);
-  const showGptSearch = useSelector((store) => store.gpt.showGptSearch);
   const handleSignOut = () => {
     signOut(auth)
       .then(() => {
@@ -27,7 +24,7 @@ const Header1 = () => {
   };
 
   const showSearchBox = () => {
-    dispatch(toggleShow());
+    navigate("/browse");
   };
 
   useEffect(() => {
@@ -35,7 +32,7 @@ const Header1 = () => {
       if (user) {
         const { uid, email, displayName } = user;
         dispatch(addUser({ uid: uid, email: email, displayName: displayName }));
-        navigate("/browse");
+        navigate("/browsemovie");
       } else {
         dispatch(removeUser());
         navigate("/");
@@ -44,32 +41,19 @@ const Header1 = () => {
     return () => unsubscribe();
   }, []);
 
-  const handleLanguageChange = (e) => {
-    dispatch(changeLanguage(e.target.value));
-  };
+ 
 
   return (
-    <div className="fixed top-0 left-0 z-50 w-screen px-8 py-2 bg-gradient-to-b from-black flex justify-between bg-black">
+    <div className="fixed z-10 w-screen px-8 py-2 bg-gradient-to-b from-black flex justify-between">
       <img className="w-52" src={netflix_logo} alt="Netflix_Logo" />
       {user && (
         <div className="p-6 flex">
-          {showGptSearch && (
-            <select
-              className="text-white font-normal rounded-lg mr-5 bg-gradient-to-b from-red-600 to-black"
-              onChange={handleLanguageChange}
-            >
-              {Supported_Languagues.map((lang) => (
-                <option key={lang.identifier} value={lang.identifier}>
-                  {lang.name}
-                </option>
-              ))}
-            </select>
-          )}
+         
           <button
-            className="text-white font-normal text-lg bg-gradient-to-b from-green-600 to-black hover:bg-gradient-to-t from-green-600 to-black rounded-lg p-2 mr-4"
+            className="text-white font-normal text-lg rounded-lg p-2 mr-4"
             onClick={showSearchBox}
           >
-            {showGptSearch ? "Home Page" : "GPT Search"}
+            Home Page
           </button>
 
           <button
@@ -89,4 +73,4 @@ const Header1 = () => {
   );
 };
 
-export default Header1;
+export default MovieDetailHeader;

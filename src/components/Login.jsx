@@ -116,7 +116,7 @@ const Login = () => {
           placeholder="enter password"
         />
         <p className="text-red-500 font-light text-base">{errorMessage}</p>
-        {console.log(errorMessage)}
+       
         <button
           className=" w-full bg-gradient-to-b from-red-800 p-3 hover:bg-black text-xl text-center mt-2 rounded-md"
           onClick={handleClick}
