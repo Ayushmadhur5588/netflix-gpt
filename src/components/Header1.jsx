@@ -7,6 +7,7 @@ import { addUser, removeUser } from "../utils/userSlice";
 import { useDispatch, useSelector } from "react-redux";
 import {
   netflix_logo,
+  search_icon,
   Supported_Languagues,
   user_icon,
 } from "../utils/constants";
@@ -66,15 +67,15 @@ const Header1 = () => {
             </select>
           )}
           <button
-            className="text-white font-normal text-lg bg-gradient-to-b from-green-600 to-black hover:bg-gradient-to-t from-green-600 to-black rounded-lg p-2 mr-4"
+            className="text-green-600 my-auto mr-2 flex hover:underline font-semibold text-lg hover:scale-110 transition duration-500 rounded-lg px-2"
             onClick={showSearchBox}
           >
             {showGptSearch ? "Home Page" : "GPT Search"}
+            <img src={search_icon} className="ml-2 h-7 w-7 mr-7" />
           </button>
-
           <button
             onClick={handleSignOut}
-            className="ml-2 mr-5 text-lg font-semibold hover:underline text-white"
+            className="mr-6 text-lg font-semibold hover:underline text-white hover:scale-110 transition duration-500"
           >
             Sign Out
           </button>
@@ -85,7 +86,9 @@ const Header1 = () => {
               alt="user_icon"
             />
             {user && (
-              <p className="font-semibold text-white mt-2">Hi, {user.displayName}</p>
+              <p className="font-semibold text-white mt-2">
+                Hi, {user.displayName}
+              </p>
             )}
           </div>
         </div>

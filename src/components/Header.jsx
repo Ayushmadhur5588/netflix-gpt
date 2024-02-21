@@ -55,18 +55,18 @@ const Header = () => {
         <div className="p-6 flex">
           {showGptSearch && (
             <select
-              className="text-white font-normal rounded-lg mr-5 bg-gradient-to-b from-red-600 to-black bg-black"
+              className="text-white rounded-lg font-semibold text-lg bg-opacity-5 bg-transparent hover:underline"
               onChange={handleLanguageChange}
             >
               {Supported_Languagues.map((lang) => (
-                <option key={lang.identifier} value={lang.identifier}>
+                <option key={lang.identifier} value={lang.identifier} className="text-black">
                   {lang.name}
                 </option>
               ))}
             </select>
           )}
           <button
-            className="text-white font-normal text-lg hover:bg-gradient-to-b from-red-600 to-black rounded-lg p-2 mr-4"
+            className="text-white font-semibold ml-4 text-lg hover:underline rounded-lg p-2 mr-4 hover:scale-110 transition duration-500"
             onClick={showSearchBox}
           >
             {showGptSearch ? "Home Page" : "GPT Search"}
@@ -74,7 +74,7 @@ const Header = () => {
 
           <button
             onClick={handleSignOut}
-            className="ml-2 mr-5 text-lg font-semibold hover:underline text-white"
+            className="ml-2 mr-5 text-lg font-semibold hover:underline text-white hover:scale-110 transition duration-500"
           >
             Sign Out
           </button>

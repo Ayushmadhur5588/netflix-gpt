@@ -50,7 +50,7 @@ const MovieDetailHeader = () => {
         <div className="p-6 flex">
          
           <button
-            className="text-white font-normal hover:underline text-lg rounded-lg p-2 mr-4"
+            className="text-white font-semibold hover:underline hover:scale-110 transition duration-500 text-lg rounded-lg p-2 mr-4"
             onClick={showSearchBox}
           >
             Home Page
@@ -58,7 +58,7 @@ const MovieDetailHeader = () => {
 
           <button
             onClick={handleSignOut}
-            className="ml-2 mr-5 text-lg font-semibold hover:underline text-white"
+            className="ml-2 mr-5 text-lg font-semibold hover:scale-110 transition duration-500 hover:underline text-white"
           >
             Sign Out
           </button>
