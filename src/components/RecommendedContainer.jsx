@@ -10,7 +10,7 @@ const RecommendedContainer = () => {
   return (
     recommendedMovies && (
       <div className="bg-black">
-        <div className="md:-mt-64 md:pt-0 pt-70 z-20 relative md:pl-14 pl-4">
+        <div className="md:-mt-64 md:pt-0 pt-[70%] z-20 relative md:pl-14 pl-4">
           <MoviesList
             category={"Recommended Movies"}
             movieList={recommendedMovies}
