@@ -84,14 +84,14 @@ const Login = () => {
     <div>
       <Header />
       <div className="absolute">
-        <img src={background_Img} alt="Background_Img" />
+        <img className="h-screen object-cover md:w-screen" src={background_Img} alt="Background_Img" />
       </div>
 
       <form
         onSubmit={(e) => e.preventDefault()}
-        className="absolute w-3/12 z-50 h-fit top-0 bottom-0 p-12 mx-auto right-0 left-0 my-auto text-white rounded-md bg-black bg-opacity-80"
+        className="absolute md:w-3/12 w-9/12 h-fit z-50 top-0 bottom-0 mx-auto right-0 left-0 md:my-auto md:p-12 p-8 my-20 text-white rounded-md bg-black bg-opacity-80"
       >
-        <h1 className="mb-6 font-normal text-4xl">
+        <h1 className="mb-6 font-normal md:text-4xl text-2xl">
           {isSignInForm ? "Sign In" : "Sign Up"}
         </h1>
 
@@ -129,7 +129,7 @@ const Login = () => {
         <p className="text-red-500 font-light text-base">{errorMessage}</p>
 
         <button
-          className=" w-full bg-gradient-to-b from-red-800 p-3 hover:bg-black text-xl text-center mt-2 rounded-md"
+          className="w-full bg-gradient-to-b from-red-800 p-3 hover:bg-black md:text-xl text-lg text-center mt-2 rounded-md"
           onClick={handleClick}
         >
           {isSignInForm ? "Sign In" : "Sign Up"}

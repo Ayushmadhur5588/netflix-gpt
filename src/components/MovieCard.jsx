@@ -22,7 +22,7 @@ const MovieCard = ({ movie }) => {
         onMouseLeave={() => setIsHovered(false)}
       >
         <img
-          className="ml-5 min-w-44 max-h-52 overflow-hidden object-cover hover:scale-110 transition duration-500 cursor-pointer rounded-lg"
+          className="mr-5 md:min-w-44 md:max-h-52 min-w-36 max-h-44 overflow-hidden object-cover hover:scale-110 transition duration-500 md:cursor-pointer rounded-lg"
           src={movie_image_url + movie.poster_path}
           alt="movie_img"
           onClick={handleClick}
@@ -30,8 +30,10 @@ const MovieCard = ({ movie }) => {
         {isHovered && (
           <div className="w-52 h-fit bg-black text-white rounded-lg p-2">
             <div className="flex mt-4 ml-2">
-              <button className="bg-transparent border border-white rounded-full p-2 hover:bg-gray-200 hover:border-gray-400"
-              onClick={handleClick}>
+              <button
+                className="bg-transparent border border-white rounded-full p-2 hover:bg-gray-200 hover:border-gray-400"
+                onClick={handleClick}
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   className="h-8 w-8 text-white"
@@ -46,12 +48,12 @@ const MovieCard = ({ movie }) => {
                   />
                 </svg>
               </button>
-
               <span className="ml-4 pt-2 font-semibold text-2xl">Play</span>
             </div>
             <br />
-            <span className="text-3xl font-bold">{movie.title}</span>
-           
+            <span className="md:text-3xl text:xl md:font-bold font-semibold">
+              {movie.title}
+            </span>
           </div>
         )}
       </div>

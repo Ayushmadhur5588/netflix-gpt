@@ -14,26 +14,26 @@ const VideoTitle = ({ title, overview }) => {
     setdetails(!details);
   };
   return (
-    <div className="w-screen aspect-video absolute text-white pl-14 pt-[15%] bg-gradient-to-r from-black">
-      <h1 className="font-bold text-6xl mb-14">{title}</h1>
+    <div className="w-screen aspect-video absolute text-white md:pl-14 pl-4 md:pt-[15%] pt-[50%] bg-gradient-to-r from-black">
+      <h1 className="md:font-bold font-semibold md:text-6xl text-3xl md:mb-14">{title}</h1>
       <p
-        className={`font-normal  ${
+        className={`md:font-normal font-light md:pt-0 pt-10  ${
           details
-            ? `text-xl w-4/5`
-            : `text-2xl w-3/5 line-clamp-3 text-ellipsis`
+            ? `md:text-xl text-base md:w-4/5 w-3/5`
+            : `md:text-2xl text-lg md:w-3/5 w-4/5 line-clamp-3 text-ellipsis`
         }`}
       >
         {overview}
       </p>
-      <div className="text-xl text-black mt-5">
+      <div className="md:text-xl text-base text-black mt-5">
         <button
-          className="p-4 px-12 bg-white rounded-lg bg-opacity-50 hover:bg-opacity-90"
+          className="md:p-4 p-2 md:px-12 px-7 bg-white rounded-lg bg-opacity-50 hover:bg-opacity-90"
           onClick={handleClick}
         >
           {play ? "Pause  | |" : "Play ▶️"}
         </button>
         <button
-          className="p-4 ml-5 px-12 text-white bg-gray-500  rounded-lg bg-opacity-30 hover:bg-opacity-70"
+          className="md:p-4 p-2 md:px-12 px-4 md:ml-5 ml-2 text-white bg-gray-500  rounded-lg bg-opacity-30 hover:bg-opacity-70"
           onClick={handleDetails}
         >
           {details ? "Less Info ⓘ" : "More Info ⓘ"}

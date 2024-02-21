@@ -50,10 +50,10 @@ const Header1 = () => {
   };
 
   return (
-    <div className="fixed top-0 left-0 z-50 w-screen px-8 py-2 bg-gradient-to-b from-black flex justify-between bg-black">
-      <img className="w-52" src={netflix_logo} alt="Netflix_Logo" />
+    <div className="fixed top-0 left-0 z-50 w-screen md:px-8 px-2 md:py-2 py-2 bg-gradient-to-b from-black flex justify-between bg-black">
+      <img className="md:w-52 md:h-24 w-20 h-10" src={netflix_logo} alt="Netflix_Logo" />
       {user && (
-        <div className="p-6 flex">
+        <div className="md:p-6 flex">
           {showGptSearch && (
             <select
               className="text-white font-normal rounded-lg mr-5 bg-gradient-to-b from-red-600 to-black"
@@ -67,15 +67,15 @@ const Header1 = () => {
             </select>
           )}
           <button
-            className="text-green-600 my-auto mr-2 flex hover:underline font-semibold text-lg hover:scale-110 transition duration-500 rounded-lg px-2"
+            className="text-green-600 my-auto md:mr-2 mr-4 flex hover:underline font-semibold md:text-lg text-sm md:hover:scale-110 transition duration-500 rounded-lg md:px-2"
             onClick={showSearchBox}
           >
             {showGptSearch ? "Home Page" : "GPT Search"}
-            <img src={search_icon} className="ml-2 h-7 w-7 mr-7" />
+            <img src={search_icon} className="md:ml-2 md:h-7 md:w-7  md:mr-7 hidden md:inline-block" />
           </button>
           <button
             onClick={handleSignOut}
-            className="mr-6 text-lg font-semibold hover:underline text-white hover:scale-110 transition duration-500"
+            className="md:mr-6 mr-4 md:text-lg text-sm font-semibold hover:underline text-white hover:scale-110 transition duration-500"
           >
             Sign Out
           </button>
@@ -86,7 +86,7 @@ const Header1 = () => {
               alt="user_icon"
             />
             {user && (
-              <p className="font-semibold text-white mt-2">
+              <p className="font-semibold text-white mt-2 hidden md:inline-block">
                 Hi, {user.displayName}
               </p>
             )}

@@ -5,11 +5,7 @@ import { useEffect } from "react";
 import { onAuthStateChanged } from "firebase/auth";
 import { addUser, removeUser } from "../utils/userSlice";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  netflix_logo,
-  user_icon,
-} from "../utils/constants";
-
+import { netflix_logo, user_icon } from "../utils/constants";
 
 const MovieDetailHeader = () => {
   const dispatch = useDispatch();
@@ -41,35 +37,34 @@ const MovieDetailHeader = () => {
     return () => unsubscribe();
   }, []);
 
- 
-
   return (
-    <div className="fixed z-10 w-screen px-8 py-2 bg-gradient-to-b from-black flex justify-between">
-      <img className="w-52" src={netflix_logo} alt="Netflix_Logo" />
+    <div className="fixed z-10 w-screen md:px-8 px-2 md:py-2 py-0 bg-gradient-to-b from-black flex justify-between">
+      <img className="md:w-52 md:h-24 w-20 h-10 md:mr-0 md:mt-0 mr-4 mt-2" src={netflix_logo} alt="Netflix_Logo" />
       {user && (
-        <div className="p-6 flex">
-         
+        <div className="md:p-6 p-2 flex">
           <button
-            className="text-white font-semibold hover:underline hover:scale-110 transition duration-500 text-lg rounded-lg p-2 mr-4"
+            className="text-white md:font-semibold font-normal hover:underline hover:scale-110 transition duration-500 md:text-lg text-sm rounded-lg md:p-2 md:mr-4 mr-2"
             onClick={showSearchBox}
           >
-            Home Page
+            Home
           </button>
 
           <button
             onClick={handleSignOut}
-            className="ml-2 mr-5 text-lg font-semibold hover:scale-110 transition duration-500 hover:underline text-white"
+            className="md:ml-2 md:mr-5 mx-2 md:text-lg text-sm md:font-semibold font-normal hover:scale-110 transition duration-500 hover:underline text-white"
           >
             Sign Out
           </button>
           <div className="flex flex-col">
             <img
-              className="w-10 mx-auto cursor-pointer"
+              className="w-10 md:mx-auto mx-2 cursor-pointer"
               src={user_icon}
               alt="user_icon"
             />
             {user && (
-              <p className="font-semibold text-white mt-2">Hi, {user.displayName}</p>
+              <p className="font-semibold text-white mt-2 hidden md:inline-block">
+                Hi, {user.displayName}
+              </p>
             )}
           </div>
         </div>
