@@ -10,7 +10,6 @@ const MovieDetails = () => {
   useRecommendedMovies(movie?.id);
   return (
     <>
-     {/* <Header /> */} 
      <MovieDetailHeader />
       <SelectedMovieContainer />
       <RecommendedContainer />

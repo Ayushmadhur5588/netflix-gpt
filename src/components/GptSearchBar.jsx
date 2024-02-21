@@ -4,7 +4,7 @@ import { useRef } from "react";
 import openai from "../utils/openai";
 import { API_OPTIONS } from "../utils/constants";
 import { useDispatch } from "react-redux";
-import { addGptMovies , addRecommendedMovies} from "../utils/gptSlice";
+import { addGptMovies, addRecommendedMovies } from "../utils/gptSlice";
 import { toggleShimmer } from "../utils/gptSlice";
 
 const GptSearchBar = () => {
@@ -36,16 +36,13 @@ const GptSearchBar = () => {
       model: "gpt-3.5-turbo",
     });
     if (!gptresults.choices) {
-      //load error page
       <h3>Error in response</h3>;
-      // return;
     }
     const movieList = gptresults.choices?.[0]?.message?.content.split(",");
     const promiseArray = movieList.map((movie) => searchTMDBMovie(movie));
     const tmdbResults = await Promise.all(promiseArray);
-   // dispatch(addGptMovies({recommendedMovies: movieList, MovieResults: tmdbResults}));
-   dispatch(toggleShimmer(false)); 
-   dispatch(addGptMovies(tmdbResults));
+    dispatch(toggleShimmer(false));
+    dispatch(addGptMovies(tmdbResults));
     dispatch(addRecommendedMovies(movieList));
   };
 

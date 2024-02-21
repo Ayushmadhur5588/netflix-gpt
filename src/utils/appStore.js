@@ -4,7 +4,7 @@ import moviesReducer from "./moviesSlice";
 import gptReducer from "./gptSlice";
 import langSettingReducer from "./langSettingSlice";
 
-// Load state from local storage
+
 const loadState = () => {
   const serializedState = localStorage.getItem("reduxState");
   if (serializedState === null) {
@@ -13,13 +13,13 @@ const loadState = () => {
   return JSON.parse(serializedState);
 };
 
-// Save state to local storage
+
 const saveState = (state) => {
   const serializedState = JSON.stringify(state);
   localStorage.setItem("reduxState", serializedState);
 };
 
-// Load preloaded state from local storage
+
 const preloadedState = loadState();
 
 const appStore = configureStore({
@@ -32,7 +32,7 @@ const appStore = configureStore({
   preloadedState: preloadedState,
 });
 
-// Subscribe to store changes and save state to local storage
+
 appStore.subscribe(() => {
   saveState(appStore.getState());
 });
