@@ -50,10 +50,10 @@ const Header1 = () => {
   };
 
   return (
-    <div className="fixed top-0 left-0 z-50 w-screen md:px-8 px-2 md:py-2 py-2 bg-gradient-to-b from-black flex justify-between bg-black">
-      <img className="md:w-52 md:h-24 w-20 h-10" src={netflix_logo} alt="Netflix_Logo" />
+    <div className="fixed top-0 left-0 z-50 w-screen md:px-8 px-2 md:py-2 py-2 bg-gradient-to-b from-black flex justify-between">
+      <img className="md:w-52 md:h-20 w-20 h-10" src={netflix_logo} alt="Netflix_Logo" />
       {user && (
-        <div className="md:p-6 flex">
+        <div className="md:p-0 flex">
           {showGptSearch && (
             <select
               className="text-white font-normal rounded-lg mr-5 bg-gradient-to-b from-red-600 to-black"
@@ -71,7 +71,7 @@ const Header1 = () => {
             onClick={showSearchBox}
           >
             {showGptSearch ? "Home Page" : "GPT Search"}
-            <img src={search_icon} className="md:ml-2 md:h-7 md:w-7  md:mr-7 hidden md:inline-block" />
+            <img src={search_icon} className="md:ml-2 md:h-7 md:w-7 md:mr-7 hidden md:inline-block" />
           </button>
           <button
             onClick={handleSignOut}
