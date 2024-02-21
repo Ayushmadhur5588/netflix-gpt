@@ -50,7 +50,7 @@ const MovieDetailHeader = () => {
         <div className="p-6 flex">
          
           <button
-            className="text-white font-normal text-lg rounded-lg p-2 mr-4"
+            className="text-white font-normal hover:underline text-lg rounded-lg p-2 mr-4"
             onClick={showSearchBox}
           >
             Home Page
@@ -58,15 +58,20 @@ const MovieDetailHeader = () => {
 
           <button
             onClick={handleSignOut}
-            className="ml-2 text-lg font-semibold hover:underline text-white"
+            className="ml-2 mr-2 text-lg font-semibold hover:underline text-white"
           >
             Sign Out
           </button>
-          <img
-            className="w-10 ml-5 cursor-pointer"
-            src={user_icon}
-            alt="user_icon"
-          />
+          <div className="flex flex-col ml-5">
+            <img
+              className="w-10 ml-7 cursor-pointer"
+              src={user_icon}
+              alt="user_icon"
+            />
+            {user && (
+              <p className="font-semibold text-white mt-2">Hi, {user.displayName}</p>
+            )}
+          </div>
         </div>
       )}
     </div>

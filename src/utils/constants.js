@@ -4,6 +4,9 @@ export const netflix_logo =
 export const user_icon =
   "https://m.media-amazon.com/images/G/02/CerberusPrimeVideo-FN38FSBD/adult-1.png";
 
+export const pause_icon =
+  "https://png.pngtree.com/png-clipart/20190517/original/pngtree-pause-vector-icon-png-image_3876297.jpg";
+
 export const API_OPTIONS = {
   method: "GET",
   headers: {

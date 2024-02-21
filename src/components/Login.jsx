@@ -21,6 +21,7 @@ const Login = () => {
 
   const toggleSigninform = () => {
     setisSignInForm(!isSignInForm);
+    seterrorMessage(null);
   };
   const handleClick = () => {
     const message = checkValidData(
@@ -52,10 +53,10 @@ const Login = () => {
         })
         .catch((error) => {
           const errorCode = error.code;
-          if(error.code === "auth/email-already-in-use"){
+          if (error.code === "auth/email-already-in-use") {
             seterrorMessage("Email already exists");
-          }else{
-          seterrorMessage(errorCode + errorMessage);
+          } else {
+            seterrorMessage(errorCode + errorMessage);
           }
         });
     } else {
@@ -70,19 +71,20 @@ const Login = () => {
         .catch((error) => {
           const errorCode = error.code;
           const errorMessage = error.message;
-          seterrorMessage(errorCode + errorMessage);
+          if (error.code === "auth/invalid-credential") {
+            seterrorMessage("Password is not valid");
+          } else {
+            seterrorMessage(errorCode + errorMessage);
+          }
         });
     }
   };
-  
+
   return (
     <div>
       <Header />
       <div className="absolute">
-        <img
-          src={background_Img}
-          alt="Background_Img"
-        />
+        <img src={background_Img} alt="Background_Img" />
       </div>
 
       <form
@@ -93,7 +95,7 @@ const Login = () => {
           {isSignInForm ? "Sign In" : "Sign Up"}
         </h1>
 
-        {isSignInForm === false && (
+        {!isSignInForm && (
           <div>
             <input
               ref={fullname}
@@ -115,8 +117,17 @@ const Login = () => {
           type="password"
           placeholder="enter password"
         />
+        {!isSignInForm && (
+          <>
+            <p className="text-sm text-gray-500">8 characters minimum</p>
+            <p className="text-sm text-gray-500">One lowercase letter</p>
+            <p className="text-sm text-gray-500">One uppercase letter</p>
+            <p className="text-sm text-gray-500">One number</p>
+            <p className="text-sm text-gray-500">One special character</p>
+          </>
+        )}
         <p className="text-red-500 font-light text-base">{errorMessage}</p>
-       
+
         <button
           className=" w-full bg-gradient-to-b from-red-800 p-3 hover:bg-black text-xl text-center mt-2 rounded-md"
           onClick={handleClick}
@@ -125,22 +136,15 @@ const Login = () => {
         </button>
 
         <div className="mt-6 text-base text-gray-400 font-extralight">
-       {/*  <p className="cursor-pointer" onClick={toggleSigninform}>
-            {isSignInForm
-              ? "New to Netflix? Sign up"
-              : "Already Registered, SignIn"}
-          </p>*/}  
           <span onClick={toggleSigninform}>
-            {isSignInForm
-              ? "New to Netflix? "
-              : "Already Registered, "}
+            {isSignInForm ? "New to Netflix? " : "Already Registered, "}
           </span>
-          <span className="cursor-pointer hover:underline text-white font-light" onClick={toggleSigninform}>
-            {isSignInForm
-              ? "Sign up"
-              : "SignIn"}
+          <span
+            className="cursor-pointer hover:underline text-white font-light"
+            onClick={toggleSigninform}
+          >
+            {isSignInForm ? "Sign up" : "SignIn"}
           </span>
-          
 
           <p className="mt-2 text-xs">
             This page is protected by Google reCAPTCHA to ensure you're not a
